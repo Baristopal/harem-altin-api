@@ -10,7 +10,8 @@ ons ve döviz kurlarının **canlı alış-satış fiyatlarını** REST API ve W
 > Bu paket ve API, Pixcharp tarafından sunulan bağımsız bir hizmettir; Harem Altın ile resmi bir bağı yoktur.
 
 - Ürün sayfası ve planlar: https://pixcharp.com/tr/harem-altin-api
-- API dokümantasyonu: https://pixcharp.com/docs
+- API dokümantasyonu: https://docs.pixcharp.com
+- 7 gün ücretsiz deneme, kart gerekmez
 - English: [see below](#english)
 
 ## Türkçe
@@ -25,8 +26,8 @@ Node.js 18+ gerekir. REST istemcisinin çalışma zamanı bağımlılığı yokt
 
 ### API anahtarı
 
-[Ürün sayfasından](https://pixcharp.com/tr/harem-altin-api) bir plan seçin. Ödeme sonrası hesabınız otomatik açılır;
-müşteri panelinden `pxa_live_...` ile başlayan bir API anahtarı oluşturun. Anahtarı yalnızca sunucuda tutun.
+[Ürün sayfasından](https://pixcharp.com/tr/harem-altin-api) kartsız 7 günlük ücretsiz denemeyi başlatın ya da bir plan
+seçin. [Müşteri panelinden](https://panel.pixcharp.com/tr/api-dashboard) `pxa_live_...` ile başlayan bir API anahtarı oluşturun. Anahtarı yalnızca sunucuda tutun.
 
 ### REST ile canlı altın fiyatı
 
@@ -181,7 +182,7 @@ const prices = stream({
 
 Plans start at $12.99/month for 200,000 requests (Pro: $24.99, 1,000,000 requests and 2 WebSocket connections;
 Business: $59.99, 5,000,000 requests and 10 connections), with a 7-day free trial and no card required, as listed on the
-product page: https://pixcharp.com/en/harem-gold-api. Documentation: https://pixcharp.com/docs.
+product page: https://pixcharp.com/en/harem-gold-api. Documentation: https://docs.pixcharp.com/en.
 
 ## License
 

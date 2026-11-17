@@ -1,7 +1,6 @@
 # harem-altin-api
 
 [![npm](https://img.shields.io/npm/v/harem-altin-api.svg)](https://www.npmjs.com/package/harem-altin-api)
-[![CI](https://github.com/Baristopal/harem-altin-api/actions/workflows/ci.yml/badge.svg)](https://github.com/Baristopal/harem-altin-api/actions/workflows/ci.yml)
 [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 **Harem Altın API** için resmi Pixcharp JavaScript/TypeScript istemcisi. Has altın, gram altın, çeyrek, 22 ayar,

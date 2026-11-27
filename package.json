@@ -1,6 +1,6 @@
 {
   "name": "harem-altin-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Harem Altın API için resmi Pixcharp JavaScript/TypeScript istemcisi: canlı altın ve döviz alış-satış fiyatları, REST ve WebSocket. Official client for the Pixcharp Harem gold price API.",
   "keywords": [
     "harem",

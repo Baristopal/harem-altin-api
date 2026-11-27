@@ -72,8 +72,9 @@ prices.subscribe(["USDTRY"]); // filtreyi değiştir; [] tümünü geri getirir
 prices.close();
 ```
 
-Bağlanınca tam bir anlık görüntü (snapshot), ardından her fiyat değişiminde bir mesaj gelir. WebSocket mesajları aylık
-kotadan düşmez. Bağlantı koparsa istemci artan beklemeyle yeniden bağlanır; anahtar iptal edilirse (kapanış kodu 1008)
+Bağlanınca tam bir anlık görüntü (snapshot), ardından fiyat değiştikçe en fazla saniyede bir `prices` mesajı gelir. Her
+`snapshot` ve `prices` mesajı aylık kotadan 1 istek düşer; `ping`, `pong`, `error` ve `subscribed` ücretsizdir ve kota REST
+çağrılarıyla ortaktır. Bağlantı koparsa istemci artan beklemeyle yeniden bağlanır; anahtar iptal edilirse (kapanış kodu 1008)
 yeniden denemez. `WebSocket` seçeneği verilmezse tarayıcının veya Node 22+'nin yerleşik WebSocket'i kullanılır ve anahtar
 URL'de gönderilir: bu durumda ayrı bir anahtar ve IP whitelist kullanın.
 
@@ -144,7 +145,13 @@ response.raise_for_status()
 print(response.json()["satis"])
 ```
 
-Daha fazla örnek: [`examples/`](examples).
+Hazır örnekler ([`examples/`](examples)):
+
+- [Node.js](examples/node-rest.mjs) (bu paketle REST ve [WebSocket](examples/node-websocket.mjs))
+- [PHP](examples/php): curl ile REST, dosya önbelleği ve hata durumunda son fiyat
+- [Python](examples/python): `requests` ile REST, `websockets` ile canlı akış
+- [cURL](examples/curl): komut satırından tüm uç noktalar
+- [WordPress / WooCommerce](examples/wordpress): `[canli_altin]` kısa kodlu eklenti; fiyatlar sunucuda çekilir ve önbelleğe alınır, API anahtarı tarayıcıya gitmez
 
 ## English
 
@@ -178,6 +185,12 @@ const prices = stream({
 - `stream({ apiKey, symbols?, WebSocket?, reconnect?, onSnapshot?, onPrice?, onError?, onOpen?, onClose? })` returns
   `subscribe(symbols)` and `close()`.
 - Errors are `HaremApiError` instances with `status` and `code` (see the table above).
+
+Each WebSocket `snapshot` and `prices` message counts as 1 request against the monthly quota, shared with REST calls;
+`ping`, `pong`, `error` and `subscribed` are free.
+
+More examples in [`examples/`](examples): [PHP](examples/php), [Python](examples/python), [cURL](examples/curl) and a
+[WordPress / WooCommerce plugin](examples/wordpress) with a `[canli_altin]` shortcode.
 
 Plans start at $12.99/month for 200,000 requests (Pro: $24.99, 1,000,000 requests and 2 WebSocket connections;
 Business: $59.99, 5,000,000 requests and 10 connections), with a 7-day free trial and no card required, as listed on the
